@@ -7,4 +7,16 @@ fig = px.box(
 )
 
 st.plotly_chart(fig)
-Insight
+
+best = (
+    df.groupby("outcome")
+    ["founder_experience_years"]
+    .mean()
+)
+
+st.success(
+f"""
+IPO founders average
+{best['IPO']:.1f} years experience.
+"""
+)
